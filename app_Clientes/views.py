@@ -7,4 +7,4 @@ def clientes(request):
 
     }
 
-    return render(request, 'clientes7index.html', ctx)
+    return render(request, 'clientes/clientes.html', ctx)
