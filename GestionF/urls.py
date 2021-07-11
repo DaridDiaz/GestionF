@@ -19,5 +19,8 @@ from app_Clientes import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('clientes/', views.clientes, name="clientes")
+    path('clientes/', views.clientes, name="clientes"),
+    path('deposito/', views.deposito, name="deposito"),
+    path('', views.inicio, name="inicio")
+
 ]

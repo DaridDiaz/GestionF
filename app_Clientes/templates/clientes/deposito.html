@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}deposito{% endblock %}
+{% block container %}
+    <div class="mb-3">
+        <label for="deposito">deposito</label>
+        <input type="text" value="{{ p.nombre }}" name="nombre" id="nombre" class="form-control" required autofocus>
+    </div>
+
+    <div class="mb-3">
+        <label for="apellido">Apellido</label>
+        <input type="text" value="{{ p.apellido }}" name="apellido" id="apellido" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="correo">Correo</label>
+        <input type="email" value="{{ p.correo }}" name="correo" id="correo" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="twitter">Twitter</label>
+        <input type="text" value="{{ p.twitter }}" name="twitter" id="twitter" class="form-control" placeholder="Tu usuario" required>
+    </div>
+    <div class="mb-3">
+        {% if p %}
+            <input type="submit" class="btn btn-success" value="Actualizar participante">
+        {% else %}
+            <input type="submit" class="btn btn-success" value="Registrar participante">
+        {% endif %}
+    </div>
+{% endblock %}

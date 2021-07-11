@@ -11,7 +11,7 @@ class Clientes(models.Model):
     correo = models.EmailField()
 
     def __str__(self):
-        return self.nombre
+        return f'{self.nombre} {self.apellido}'
 
 class Cuentas(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
@@ -20,14 +20,21 @@ class Cuentas(models.Model):
     clientes = models.ForeignKey(Clientes,on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.saldo
+        return f'Cuentas: {self.saldo} - cliente: {self.clientes}'
 
-class Transacciones(models.Model):
+
+class deposito(models.Model):
     deposito = models.DecimalField(max_digits=50, decimal_places=3)
+    clientes = models.ForeignKey(Clientes,on_delete=models.CASCADE, null=True)
+    fecha_realizacion = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f'deposito: {self.deposito} - cliente: {self.clientes}'
+
+class retiro(models.Model):
     retiro = models.DecimalField(max_digits=50, decimal_places=3)
-    tranferencia = models.DecimalField(max_digits=50, decimal_places=3)
-
+    clientes = models.ForeignKey(Clientes,on_delete=models.CASCADE, null=True)
+    fecha_realizacion = models.DateTimeField(auto_now_add=True)
     
-
-
-    
+    def __str__(self):
+        return f'retiro: {self.deposito} - cliente: {self.clientes}'
